@@ -79,6 +79,8 @@ model Board {
     user      User     @relation(fields: [userId], references: [id])
     userId    String
     columns   Column[]
+
+    @@map("boards")
 }
 
 model Column {
@@ -99,6 +101,8 @@ model Task {
     subtasks    Subtask[]
     column      Column    @relation(fields: [columnId], references: [id])
     columnId    String
+
+    @@map("tasks")
 }
 
 model Subtask {
@@ -108,4 +112,6 @@ model Subtask {
     isCompleted Boolean
     task        Task     @relation(fields: [taskId], references: [id])
     taskId      String
+
+    @@map("subtasks")
 }
