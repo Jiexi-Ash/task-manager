@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
+import SideNav from "./SideNav";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,7 +9,8 @@ interface LayoutProps {
 function MainLayout({ children }: LayoutProps) {
   return (
     <div className="flex min-h-screen lg:flex">
-      <main className="flex-1 ">
+      <SideNav />
+      <main className="flex-1 lg:ml-[250px] ">
         <Navbar />
         {children}
       </main>

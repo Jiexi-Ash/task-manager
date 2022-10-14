@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-lg {
+    @apply rounded-lg bg-primaryPurple py-4 px-6 text-center text-lg text-white transition-all duration-150 ease-in-out hover:bg-primaryPurpleHover;
+  }
+
+  .btn-sm {
+    @apply rounded-lg bg-primaryPurple py-2 px-4 text-sm text-white hover:bg-primaryPurpleHover;
+  }
+}

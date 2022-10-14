@@ -1,9 +1,26 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useSession } from "next-auth/react";
 import MainLayout from "../components/UI/MainLayout";
 import { trpc } from "../utils/trpc";
+import Board from "../components/Board/Board";
 
 const Home: NextPage = () => {
+  const { data: sessionData } = useSession();
+
+  const mutation = trpc.board.create.useMutation({
+    onSuccess: (data) => {
+      console.log(data);
+    },
+
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+
+  const { mutate: create } = mutation;
+
+  console.log(sessionData);
   return (
     <>
       <Head>
@@ -13,7 +30,7 @@ const Home: NextPage = () => {
       </Head>
 
       <MainLayout>
-        <h1>Test</h1>
+        <Board />
       </MainLayout>
     </>
   );
